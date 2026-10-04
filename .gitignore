@@ -1,0 +1,9 @@
+# AI Agent Instructions
+AGENTS.md
+
+# Operating System & IDE Files
+.DS_Store
+Thumbs.db
+*.code-workspace
+.vscode/
+.idea/

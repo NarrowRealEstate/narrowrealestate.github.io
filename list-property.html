@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List Your Property - Narrow Real Estate</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="list-property.css">
+  </head>
+  <body>
+    <!-- Global Header -->
+    <header>
+      <div class="nav-container">
+        <a href="index.html" class="logo">
+          <img
+            src="images/narrow.png"
+            alt="Narrow Real Estate Logo"
+            class="brand-logo-img"
+          >
+          <div class="brand-text">
+            <span>NARROW</span>
+            <span>REAL ESTATE</span>
+          </div>
+        </a>
+
+        <button type="button" class="burger-menu" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <nav class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="properties.html">Properties</a>
+          <a href="list-property.html" class="active">List Your Own Property</a>
+          <a href="#">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="list-property-page">
+      <div class="container">
+        <!-- Page Header -->
+        <div class="list-page-header">
+          <h1>List Your Property</h1>
+          <p class="subtitle">
+            Partner with narrow real estate to list your modern home and reach premium buyers across Pampanga.
+          </p>
+        </div>
+
+        <!-- Form Card -->
+        <div class="listing-card">
+          <form id="listing-form" novalidate>
+            <!-- 1. Seller Information -->
+            <section class="form-section">
+              <h2 class="section-heading">1. Seller Information</h2>
+
+              <div class="form-group">
+                <label for="sellerName">Full Name</label>
+                <input
+                  type="text"
+                  id="sellerName"
+                  name="sellerName"
+                  class="form-control"
+                  placeholder="Your Name"
+                  required
+                >
+              </div>
+
+              <div class="form-group">
+                <label for="sellerEmail">Email Address</label>
+                <input
+                  type="email"
+                  id="sellerEmail"
+                  name="sellerEmail"
+                  class="form-control"
+                  placeholder="you@domain.com"
+                  required
+                >
+              </div>
+
+              <div class="form-group">
+                <label for="sellerPhone">Phone Number</label>
+                <input
+                  type="tel"
+                  id="sellerPhone"
+                  name="sellerPhone"
+                  class="form-control"
+                  placeholder="09XX XXX XXXX"
+                  required
+                >
+              </div>
+
+              <div class="form-group">
+                <label for="preferredContact">Preferred Contact Method</label>
+                <div class="select-wrapper">
+                  <select id="preferredContact" name="preferredContact" class="form-control">
+                    <option value="Phone Call" selected>Phone Call</option>
+                    <option value="Email">Email</option>
+                    <option value="Viber / WhatsApp">Viber / WhatsApp</option>
+                    <option value="SMS">SMS</option>
+                  </select>
+                </div>
+              </div>
+            </section>
+
+            <hr class="section-divider">
+
+            <!-- 2. Property Information -->
+            <section class="form-section">
+              <h2 class="section-heading">2. Property Information</h2>
+
+              <div class="form-group">
+                <label for="propertyTitle">Catchy Property Title</label>
+                <input
+                  type="text"
+                  id="propertyTitle"
+                  name="propertyTitle"
+                  class="form-control"
+                  placeholder="e.g. Spacious Corner Lot House in San Fernando"
+                  required
+                >
+              </div>
+
+              <div class="form-group">
+                <label for="propertyType">Property Type</label>
+                <div class="select-wrapper">
+                  <select id="propertyType" name="propertyType" class="form-control">
+                    <option value="House & Lot" selected>House &amp; Lot</option>
+                    <option value="Condominium">Condominium</option>
+                    <option value="Townhouse">Townhouse</option>
+                    <option value="Lot">Lot</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="propertyLocation">Location (City/Municipality in Pampanga)</label>
+                <div class="select-wrapper">
+                  <select id="propertyLocation" name="propertyLocation" class="form-control">
+                    <option value="Angeles City" selected>Angeles City</option>
+                    <option value="San Fernando">City of San Fernando</option>
+                    <option value="Mabalacat">Mabalacat</option>
+                    <option value="Mexico">Mexico</option>
+                    <option value="Porac">Porac</option>
+                    <option value="Bacolor">Bacolor</option>
+                    <option value="Other">Other (Pampanga)</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="askingPrice">Asking Price (₱)</label>
+                <input
+                  type="number"
+                  id="askingPrice"
+                  name="askingPrice"
+                  class="form-control"
+                  placeholder="e.g. 5500000"
+                  min="0"
+                  required
+                >
+              </div>
+
+              <div class="form-group">
+                <label for="bedrooms">Bedrooms</label>
+                <input
+                  type="number"
+                  id="bedrooms"
+                  name="bedrooms"
+                  class="form-control"
+                  placeholder="e.g. 3"
+                  min="0"
+                >
+              </div>
+
+              <div class="form-group">
+                <label for="bathrooms">Bathrooms</label>
+                <input
+                  type="number"
+                  id="bathrooms"
+                  name="bathrooms"
+                  class="form-control"
+                  placeholder="e.g. 2"
+                  min="0"
+                >
+              </div>
+
+              <div class="form-group">
+                <label for="floorArea">Floor Area (sqm)</label>
+                <input
+                  type="number"
+                  id="floorArea"
+                  name="floorArea"
+                  class="form-control"
+                  placeholder="120"
+                  min="0"
+                >
+              </div>
+
+              <div class="form-group">
+                <label for="lotArea">Lot Area (sqm)</label>
+                <input
+                  type="number"
+                  id="lotArea"
+                  name="lotArea"
+                  class="form-control"
+                  placeholder="150"
+                  min="0"
+                >
+              </div>
+            </section>
+
+            <hr class="section-divider">
+
+            <!-- 3. Property Description -->
+            <section class="form-section">
+              <h2 class="section-heading">3. Property Description</h2>
+
+              <div class="form-group">
+                <label for="propertyDescription">Detailed Description</label>
+                <textarea
+                  id="propertyDescription"
+                  name="propertyDescription"
+                  class="form-control"
+                  placeholder="Tell potential buyers what makes this property special..."
+                  required
+                ></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="keyFeatures">Key Features &amp; Amenities</label>
+                <textarea
+                  id="keyFeatures"
+                  name="keyFeatures"
+                  class="form-control"
+                  placeholder="e.g. 2-car garage, gated subdivision, near SM Pampanga..."
+                ></textarea>
+              </div>
+            </section>
+
+            <hr class="section-divider">
+
+            <!-- 4. Property Photos -->
+            <section class="form-section">
+              <h2 class="section-heading">4. Property Photos</h2>
+              <p class="section-desc">
+                Upload high-quality images of the facade, living areas, bedrooms, and kitchen. (Must be photo format).
+              </p>
+
+              <div class="upload-dropzone" id="uploadDropzone">
+                <svg
+                  class="camera-icon"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z"
+                  ></path>
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z"
+                  ></path>
+                </svg>
+                <div class="upload-text">Click to upload images or drag them here</div>
+                <div class="upload-hint">PNG or JPG up to 10MB each (Max 15 photos)</div>
+                <input
+                  type="file"
+                  id="propertyPhotos"
+                  name="photos"
+                  multiple
+                  accept="image/png, image/jpeg, image/jpg"
+                  class="file-input-hidden"
+                >
+              </div>
+
+              <!-- Uploaded files display -->
+              <div class="file-preview-list" id="filePreviewList"></div>
+
+              <!-- Post-Upload Footnote -->
+              <p class="photos-footnote">
+                <span class="footnote-asterisk">*</span> Note: A representative from Narrow Real Estate will review your submission and contact you within 3–5 business days to verify and finalize your listing.
+              </p>
+            </section>
+
+            <!-- Submit Button & Disclaimer -->
+            <div class="form-submit-row">
+              <button type="submit" class="btn btn-primary btn-submit-listing">
+                Submit Property
+              </button>
+              <p class="form-disclaimer">
+                By clicking Submit, you agree to our terms of service and verify that you are the legal owner or authorized representative for this property.
+              </p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <!-- Submission Success Modal -->
+    <div id="submissionModal" class="submission-modal" role="dialog" aria-modal="true">
+      <div class="submission-modal-card">
+        <div class="modal-success-icon">✓</div>
+        <h3>Listing Submitted Successfully!</h3>
+        <p>
+          Thank you for trusting Narrow Real Estate. A representative will review your property details and reach out within 3–5 business days to verify and finalize your listing.
+        </p>
+        <button type="button" class="btn btn-primary" id="btnModalClose">Done</button>
+      </div>
+    </div>
+
+    <!-- Global Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <a href="index.html" class="footer-logo">
+              <img
+                src="images/narrow.png"
+                alt="Narrow Logo"
+                class="brand-logo-img footer-logo-img"
+              >
+              <div class="brand-text">
+                <span>NARROW</span>
+                <span>REAL ESTATE</span>
+              </div>
+            </a>
+            <p>
+              Finding or selling a home in Pampanga should be simple, clear, and
+              approachable
+            </p>
+          </div>
+          <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="properties.html">Properties</a></li>
+              <li><a href="list-property.html">List Your Property</a></li>
+              <li><a href="#">Contact Us</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Contact Information</h4>
+            <ul class="footer-contact">
+              <li class="contact-item">
+                <span class="icon">📍</span>
+                <span class="text">San Fernando, Pampanga, Philippines</span>
+              </li>
+              <li class="contact-item">
+                <span class="icon">📞</span>
+                <span class="text">
+                  <a href="tel:+639123456789">+63&nbsp;912&nbsp;345&nbsp;6789</a>
+                </span>
+              </li>
+              <li class="contact-item">
+                <span class="icon">✉️</span>
+                <span class="text">
+                  <a href="mailto:rowenrobnash@narrowrealestate.ph">rowenrobnash@narrowrealestate.ph</a>
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© 2026 Narrow Real Estate. All rights reserved.</p>
+          <div class="social-links">
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+  </body>
+</html>
