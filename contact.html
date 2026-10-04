@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Narrow Real Estate</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="contact.css">
+  </head>
+  <body>
+    <!-- Global Header -->
+    <header>
+      <div class="nav-container">
+        <a href="index.html" class="logo">
+          <img
+            src="images/narrow.png"
+            alt="Narrow Real Estate Logo"
+            class="brand-logo-img"
+          >
+          <div class="brand-text">
+            <span>NARROW</span>
+            <span>REAL ESTATE</span>
+          </div>
+        </a>
+
+        <button type="button" class="burger-menu" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <nav class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="properties.html">Properties</a>
+          <a href="list-property.html">List Your Own Property</a>
+          <a href="contact.html" class="active">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Page Intro -->
+    <section class="contact-hero">
+      <div class="container">
+        <h1>Get in Touch</h1>
+        <p>
+          Whether you're looking to buy your first home or sell your property,
+          we're here to help make it simple.
+        </p>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="contact-page">
+      <div class="container">
+        <div class="contact-grid">
+
+          <!-- Message Form -->
+          <div class="contact-form-card">
+            <h2>Send us a Message</h2>
+            <form id="contact-form" novalidate>
+              <div class="form-group">
+                <label for="contactName">Full Name</label>
+                <input
+                  type="text"
+                  id="contactName"
+                  name="name"
+                  class="form-control"
+                  placeholder="Your Name"
+                  required
+                >
+              </div>
+
+              <div class="form-group">
+                <label for="contactEmail">Email Address</label>
+                <input
+                  type="email"
+                  id="contactEmail"
+                  name="email"
+                  class="form-control"
+                  placeholder="you@domain.com"
+                  required
+                >
+              </div>
+
+              <div class="form-group">
+                <label for="contactPhone">Phone Number</label>
+                <input
+                  type="tel"
+                  id="contactPhone"
+                  name="phone"
+                  class="form-control"
+                  placeholder="(09XX) XXX-XXXX"
+                >
+              </div>
+
+              <div class="form-group">
+                <label for="contactSubject">Subject</label>
+                <div class="select-wrapper">
+                  <select id="contactSubject" name="subject" class="form-control">
+                    <option value="buy" selected>I'm looking to buy a property</option>
+                    <option value="sell">I'm looking to sell a property</option>
+                    <option value="other">Other inquiry</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="contactMessage">Message</label>
+                <textarea
+                  id="contactMessage"
+                  name="message"
+                  class="form-control"
+                  placeholder="How can we help you?"
+                  required
+                ></textarea>
+              </div>
+
+              <button type="submit" class="btn-send">Send Message</button>
+            </form>
+          </div>
+
+          <!-- Info Column -->
+          <div class="contact-info-col">
+            <div class="info-card info-card-accent">
+              <h3>For Buyers</h3>
+              <p>
+                Looking for the perfect modern home in Pampanga? Let our agents
+                guide you through our curated list of properties suited to your
+                lifestyle and budget.
+              </p>
+              <div class="info-email">
+                <strong>Email:</strong>
+                <a href="mailto:buyers@narrowrealestate.ph">buyers@narrowrealestate.ph</a>
+              </div>
+            </div>
+
+            <div class="info-card info-card-accent">
+              <h3>For Sellers</h3>
+              <p>
+                Ready to list your property? We handle the photography, staging
+                advice, and marketing to ensure your property reaches the right
+                audience.
+              </p>
+              <div class="info-email">
+                <strong>Email:</strong>
+                <a href="mailto:sellers@narrowrealestate.ph">sellers@narrowrealestate.ph</a>
+              </div>
+            </div>
+
+            <div class="info-card office-card">
+              <h3>Office Information</h3>
+              <ul class="office-list">
+                <li>
+                  <svg class="office-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                  <div>
+                    <strong>Location:</strong>
+                    <span>123 MacArthur Highway, Brgy. Dolores, San Fernando, Pampanga 2000 Philippines</span>
+                  </div>
+                </li>
+                <li>
+                  <svg class="office-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"></path>
+                  </svg>
+                  <div>
+                    <strong>Phones:</strong>
+                    <span>+63 917 123 4587 / (045) 123-4587</span>
+                  </div>
+                </li>
+                <li>
+                  <svg class="office-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
+                  <div>
+                    <strong>Business Hours:</strong>
+                    <span>Monday to Friday: 9:00 AM - 5:00 PM</span>
+                    <span>Saturday: 10:00 AM - 4:00 PM</span>
+                    <span>Sunday: Closed</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </main>
+
+    <!-- Global Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <a href="index.html" class="footer-logo">
+              <img
+                src="images/narrow.png"
+                alt="Narrow Logo"
+                class="brand-logo-img footer-logo-img"
+              >
+              <div class="brand-text">
+                <span>NARROW</span>
+                <span>REAL ESTATE</span>
+              </div>
+            </a>
+            <p>
+              Finding or selling a home in Pampanga should be simple, clear, and
+              approachable
+            </p>
+          </div>
+          <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="properties.html">Properties</a></li>
+              <li><a href="list-property.html">List Your Property</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Contact Information</h4>
+            <ul class="footer-contact">
+              <li class="contact-item">
+                <span class="icon">📍</span>
+                <span class="text">San Fernando, Pampanga, Philippines</span>
+              </li>
+              <li class="contact-item">
+                <span class="icon">📞</span>
+                <span class="text">
+                  <a href="tel:+639123456789">+63&nbsp;912&nbsp;345&nbsp;6789</a>
+                </span>
+              </li>
+              <li class="contact-item">
+                <span class="icon">✉️</span>
+                <span class="text">
+                  <a href="mailto:rowenrobnash@narrowrealestate.ph">rowenrobnash@narrowrealestate.ph</a>
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© 2026 Narrow Real Estate. All rights reserved.</p>
+          <div class="social-links">
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+      document.getElementById('contact-form').addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (!this.checkValidity()) {
+          this.reportValidity();
+          return;
+        }
+        alert('Message Sent! We will get back to you shortly.');
+        this.reset();
+      });
+    </script>
+  </body>
+</html>
