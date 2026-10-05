@@ -69,12 +69,6 @@
     pointer-events: none;
 }
 
-.btn-search {
-    padding: 12px 40px;
-    height: 47px;
-    white-space: nowrap;
-}
-
 /* Properties Headers */
 .properties-header {
     margin-bottom: 30px;
@@ -236,10 +230,6 @@
     
     .filter-group {
         flex: 1 1 calc(50% - 20px);
-    }
-    
-    .btn-search {
-        flex: 1 1 100%;
     }
     
     .properties-grid {

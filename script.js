@@ -406,28 +406,36 @@ document.addEventListener('DOMContentLoaded', () => {
   if (propertiesGrid) {
     renderProperties(propertiesData, propertiesGrid, 'properties');
 
-    const btnSearch = document.getElementById('btn-search');
-    if (btnSearch) {
-      btnSearch.addEventListener('click', () => {
-        const locVal = document.getElementById('filter-location').value;
-        const typeVal = document.getElementById('filter-type').value;
-        const priceVal = document.getElementById('filter-price').value;
-        const bedsVal = document.getElementById('filter-beds').value;
+    const filterLocation = document.getElementById('filter-location');
+    const filterType = document.getElementById('filter-type');
+    const filterPrice = document.getElementById('filter-price');
+    const filterBeds = document.getElementById('filter-beds');
 
-        const filtered = propertiesData.filter(prop => {
-          if (locVal !== 'All' && prop.city !== locVal) return false;
-          if (typeVal !== 'All Types' && prop.type !== typeVal) return false;
-          if (priceVal !== 'Any Price' && prop.price > parseInt(priceVal)) return false;
-          if (bedsVal !== 'Any') {
-            const minBeds = parseInt(bedsVal);
-            if (!prop.beds || prop.beds < minBeds) return false;
-          }
-          return true;
-        });
+    const applyFilters = () => {
+      const locVal = filterLocation ? filterLocation.value : 'All';
+      const typeVal = filterType ? filterType.value : 'All Types';
+      const priceVal = filterPrice ? filterPrice.value : 'Any Price';
+      const bedsVal = filterBeds ? filterBeds.value : 'Any';
 
-        renderProperties(filtered, propertiesGrid, 'properties');
+      const filtered = propertiesData.filter(prop => {
+        if (locVal !== 'All' && prop.city !== locVal) return false;
+        if (typeVal !== 'All Types' && prop.type !== typeVal) return false;
+        if (priceVal !== 'Any Price' && prop.price > parseInt(priceVal, 10)) return false;
+        if (bedsVal !== 'Any') {
+          const minBeds = parseInt(bedsVal, 10);
+          if (!prop.beds || prop.beds < minBeds) return false;
+        }
+        return true;
       });
-    }
+
+      renderProperties(filtered, propertiesGrid, 'properties');
+    };
+
+    [filterLocation, filterType, filterPrice, filterBeds].forEach(filterEl => {
+      if (filterEl) {
+        filterEl.addEventListener('change', applyFilters);
+      }
+    });
   }
 
   // Route: Property Detail Page
