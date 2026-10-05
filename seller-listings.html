@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seller Portal - Narrow Real Estate</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/seller-listings.css">
+  </head>
+  <body>
+    <!-- Global Header -->
+    <header>
+      <div class="nav-container">
+        <a href="index.html" class="logo">
+          <img
+            src="images/narrow.png"
+            alt="Narrow Real Estate Logo"
+            class="brand-logo-img"
+          >
+          <div class="brand-text">
+            <span>NARROW</span>
+            <span>REAL ESTATE</span>
+          </div>
+        </a>
+
+        <button type="button" class="burger-menu" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <nav class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="properties.html">Properties</a>
+          <a href="list-property.html">List Your Own Property</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main Seller Portal Content -->
+    <main class="seller-portal-page">
+      <div class="container">
+
+        <!-- Seller Profile Banner -->
+        <section class="seller-profile-card">
+          <div class="seller-profile-main">
+            <div class="seller-avatar" id="seller-avatar">EV</div>
+            <div class="seller-info">
+              <div class="seller-title-row">
+                <h1 class="seller-name" id="seller-name">Elena Vance</h1>
+                <span class="badge-verified">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                  </svg>
+                  Verified Approved Seller
+                </span>
+              </div>
+              <div class="seller-meta">
+                <span class="meta-item"><strong>Seller ID:</strong> <span id="seller-id-text">#SEL-8821</span></span>
+                <span class="meta-divider">•</span>
+                <span class="meta-item"><strong>Member Since:</strong> <span id="seller-since-text">March 2024</span></span>
+                <span class="meta-divider">•</span>
+                <span class="meta-item"><strong>Assigned Listing Agent:</strong> Raquel Rivera (Narrow RE)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="seller-profile-actions">
+            <button type="button" class="btn btn-outline btn-logout" id="btnSellerLogout">
+              Log Out
+            </button>
+          </div>
+        </section>
+
+        <!-- KPI Metrics Summary Grid -->
+        <section class="kpi-grid" aria-label="Listing Performance Metrics">
+          <div class="kpi-card">
+            <div class="kpi-icon">🏡</div>
+            <div class="kpi-content">
+              <span class="kpi-label">Active Listings</span>
+              <span class="kpi-value" id="kpi-active">0</span>
+            </div>
+          </div>
+
+          <div class="kpi-card">
+            <div class="kpi-icon">⏳</div>
+            <div class="kpi-content">
+              <span class="kpi-label">Pending Review</span>
+              <span class="kpi-value" id="kpi-pending">0</span>
+            </div>
+          </div>
+
+          <div class="kpi-card">
+            <div class="kpi-icon">💬</div>
+            <div class="kpi-content">
+              <span class="kpi-label">Buyer Inquiries</span>
+              <span class="kpi-value" id="kpi-inquiries">0</span>
+            </div>
+          </div>
+
+          <div class="kpi-card">
+            <div class="kpi-icon">📈</div>
+            <div class="kpi-content">
+              <span class="kpi-label">Portfolio Value</span>
+              <span class="kpi-value" id="kpi-value">₱0</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Listings Management Section -->
+        <section class="listings-management-section">
+          <div class="management-header">
+            <div class="header-left">
+              <h2>My Property Listings</h2>
+              <p class="section-subtitle">Monitor performance, review buyer leads, and manage your listed properties.</p>
+            </div>
+            <a href="list-property.html" class="btn btn-primary btn-submit-new">
+              <span class="btn-icon">+</span> Submit New Property
+            </a>
+          </div>
+
+          <!-- Controls: Search & Status Filter Tabs -->
+          <div class="listings-toolbar">
+            <div class="status-tabs" role="tablist">
+              <button type="button" class="tab-btn active" data-status="all" role="tab" aria-selected="true">
+                All Listings (<span id="tab-count-all">0</span>)
+              </button>
+              <button type="button" class="tab-btn" data-status="Active" role="tab" aria-selected="false">
+                Active (<span id="tab-count-active">0</span>)
+              </button>
+              <button type="button" class="tab-btn" data-status="Pending Review" role="tab" aria-selected="false">
+                Pending (<span id="tab-count-pending">0</span>)
+              </button>
+              <button type="button" class="tab-btn" data-status="Under Contract" role="tab" aria-selected="false">
+                Under Contract / Sold (<span id="tab-count-contract">0</span>)
+              </button>
+            </div>
+
+            <div class="search-wrapper">
+              <span class="search-icon">🔍</span>
+              <input
+                type="text"
+                id="seller-search-input"
+                class="seller-search-input"
+                placeholder="Search by title, MLS, or city..."
+                aria-label="Search listings"
+              >
+            </div>
+          </div>
+
+          <!-- Listings Card Container -->
+          <div id="seller-listings-container" class="seller-listings-container">
+            <!-- Dynamic cards injected via js/seller-listings.js -->
+          </div>
+
+        </section>
+      </div>
+    </main>
+
+    <!-- Modal: Buyer Inquiries / Leads -->
+    <div id="inquiriesModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="inquiriesModalTitle">
+      <div class="modal-content modal-large">
+        <div class="modal-header">
+          <div>
+            <h3 id="inquiriesModalTitle" class="modal-title">Buyer Inquiries</h3>
+            <p id="inquiriesModalSubtitle" class="modal-subtitle">Messages from prospective buyers for this property.</p>
+          </div>
+          <button type="button" class="modal-close" id="btnCloseInquiriesModal" aria-label="Close modal">&times;</button>
+        </div>
+        <div class="modal-body" id="inquiriesListContainer">
+          <!-- Injected via JS -->
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline" id="btnDismissInquiriesModal">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal: Manage Listing (Price & Status Update) -->
+    <div id="manageModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="manageModalTitle">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div>
+            <h3 id="manageModalTitle" class="modal-title">Manage Listing</h3>
+            <p id="manageModalSubtitle" class="modal-subtitle">Update asking price or status.</p>
+          </div>
+          <button type="button" class="modal-close" id="btnCloseManageModal" aria-label="Close modal">&times;</button>
+        </div>
+        <form id="manageListingForm" class="modal-form">
+          <input type="hidden" id="managePropertyId">
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="managePrice">Asking Price (PHP)</label>
+              <div class="price-input-wrapper">
+                <span class="currency-prefix">₱</span>
+                <input
+                  type="number"
+                  id="managePrice"
+                  class="form-control"
+                  min="100000"
+                  step="50000"
+                  placeholder="e.g. 6500000"
+                  required
+                >
+              </div>
+              <span class="form-hint">Target selling price in Philippine Pesos (PHP).</span>
+            </div>
+            <div class="form-group">
+              <label for="manageStatus">Listing Status</label>
+              <div class="select-wrapper">
+                <select id="manageStatus" class="form-control" required>
+                  <option value="Active">Active (Live on Website)</option>
+                  <option value="Under Contract">Under Contract (Offer Accepted)</option>
+                  <option value="Sold">Sold</option>
+                  <option value="Pending Review">Pending Review</option>
+                </select>
+              </div>
+              <span class="form-hint">Update listing visibility and deal progression.</span>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline" id="btnCancelManageModal">Cancel</button>
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Global Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <a href="index.html" class="footer-logo">
+              <img
+                src="images/narrow.png"
+                alt="Narrow Real Estate Logo"
+                class="brand-logo-img footer-logo-img"
+              >
+              <div class="brand-text">
+                <span>NARROW</span>
+                <span>REAL ESTATE</span>
+              </div>
+            </a>
+            <p>
+              Finding or selling a home in Pampanga should be simple, clear, and
+              approachable.
+            </p>
+          </div>
+          <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="properties.html">Properties</a></li>
+              <li><a href="list-property.html">List Your Property</a></li>
+              <li><a href="seller-login.html">Seller Portal</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Contact Information</h4>
+            <ul class="footer-contact">
+              <li class="contact-item">
+                <span class="icon">📍</span>
+                <span class="text">San Fernando, Pampanga, Philippines</span>
+              </li>
+              <li class="contact-item">
+                <span class="icon">📞</span>
+                <span class="text">
+                  <a href="tel:+639123456789">+63&nbsp;912&nbsp;345&nbsp;6789</a>
+                </span>
+              </li>
+              <li class="contact-item">
+                <span class="icon">✉️</span>
+                <span class="text">
+                  <a href="mailto:rowenrobnash@narrowrealestate.ph">rowenrobnash@narrowrealestate.ph</a>
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© 2026 Narrow Real Estate. All rights reserved.</p>
+          <div class="social-links">
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/nav.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/seller-listings.js"></script>
+  </body>
+</html>

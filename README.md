@@ -10,6 +10,8 @@ A clean, modern real estate listing and discovery platform focused on Pampanga, 
 - **Properties Catalog (`properties.html`)**: Reactive live filter system (by location, property type, maximum budget, and minimum bedrooms) with responsive listing cards.
 - **Property Detail (`property-detail.html`)**: Comprehensive single-property view with dynamic URL parameter routing (`?id=<id>`), interactive photo carousel, full-screen lightbox modal, specs overview, amenities, and agent inquiry form.
 - **List Your Property (`list-property.html`)**: Dedicated seller submission form with seller contact details, property specifications, pricing, drag-and-drop photo upload with file chips, and submission modal.
+- **Seller Portal Login (`seller-login.html`)**: Authentication sign-in portal for approved property sellers to access their private dashboard.
+- **Approved Seller Dashboard (`seller-listings.html`)**: Seller management dashboard featuring KPI cards (Active, Pending, Leads, Value), status tabs, live search, buyer inquiries viewer modal, and price/status editor.
 - **Contact Us (`contact.html`)**: General contact and inquiry form with tailored buyer/seller channels, office address, phone numbers, and operating hours.
 
 ---
@@ -22,6 +24,8 @@ Narrow/
 ├── properties.html         # Catalog & Live Search
 ├── property-detail.html    # Single Property View & Gallery Lightbox
 ├── list-property.html      # Seller Property Listing Form
+├── seller-login.html       # Approved Seller Sign-In Page
+├── seller-listings.html    # Approved Seller Listings Dashboard
 ├── contact.html            # Contact & Office Information
 ├── css/
 │   ├── styles.css          # Global styles, variables, typography & layout
@@ -29,6 +33,8 @@ Narrow/
 │   ├── properties.css      # Catalog & filter bar styles
 │   ├── property-detail.css # Detail layout, gallery carousel & modal lightbox
 │   ├── list-property.css   # Listing submission form & dropzone styles
+│   ├── seller-login.css    # Seller sign-in card & credentials callout
+│   ├── seller-listings.css # Seller dashboard, KPI cards & inquiries modal
 │   └── contact.css         # Contact grid & office cards styles
 ├── js/
 │   ├── nav.js              # Global mobile burger menu
@@ -37,6 +43,8 @@ Narrow/
 │   ├── properties.js       # Live catalog filtering & rendering
 │   ├── property-detail.js  # Listing details, carousel & lightbox modal
 │   ├── list-property.js    # Seller listing form & photo dropzone
+│   ├── seller-login.js     # Seller authentication & session handler
+│   ├── seller-listings.js  # Seller dashboard controller & inquiries modal
 │   └── contact.js          # Contact form validation & submission
 ├── fonts/                  # Sabrosa & Objectivity custom web fonts
 └── images/                 # Brand assets & property photography

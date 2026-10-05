@@ -147,7 +147,7 @@ const renderProperties = (properties, container, pageType) => {
   container.innerHTML = '';
 
   if (properties.length === 0) {
-    container.innerHTML = '<p style="grid-column: 1 / -1; text-align: center; padding: 40px; font-size: 18px;">No properties match your search criteria.</p>';
+    container.innerHTML = '<p style="grid-column: 1 / -1; text-align: center; padding: 2.5rem; font-size: 1.125rem;">No properties match your search criteria.</p>';
     return;
   }
 

@@ -42,7 +42,7 @@
 /* Form Card */
 .contact-form-card {
   background: #ffffff;
-  border: 1px solid #f0f0f0;
+  border: 0.0625rem solid #f0f0f0;
   border-radius: 0.5rem;
   box-shadow: 0 0.25rem 1.25rem rgba(0, 0, 0, 0.04);
   padding: clamp(1.75rem, 3vw, 2.5rem);
@@ -83,7 +83,7 @@
   padding: 0.75rem 1rem;
   min-height: 2.875rem;
   background-color: #fcfcfc;
-  border: 1px solid #eaeaea;
+  border: 0.0625rem solid #eaeaea;
   border-radius: 0.25rem;
   font-family: var(--font-main);
   font-size: 0.9375rem;
@@ -162,7 +162,7 @@
 
 .info-card {
   background: #ffffff;
-  border: 1px solid #f0f0f0;
+  border: 0.0625rem solid #f0f0f0;
   border-radius: 0.5rem;
   box-shadow: 0 0.25rem 1.25rem rgba(0, 0, 0, 0.04);
   padding: clamp(1.25rem, 2.5vw, 1.75rem);
@@ -260,7 +260,7 @@
 }
 
 /* Responsiveness (em-based) */
-@media (max-width: 62em) { /* ~992px */
+@media (max-width: 62em) {
   .contact-grid {
     grid-template-columns: 1fr;
     gap: 1.75rem;
@@ -275,7 +275,7 @@
   }
 }
 
-@media (max-width: 48em) { /* ~768px */
+@media (max-width: 48em) {
   .btn-submit-contact {
     width: 100%;
     align-self: stretch;

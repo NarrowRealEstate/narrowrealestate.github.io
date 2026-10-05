@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seller Portal Login - Narrow Real Estate</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/seller-login.css">
+  </head>
+  <body>
+    <!-- Global Header -->
+    <header>
+      <div class="nav-container">
+        <a href="index.html" class="logo">
+          <img
+            src="images/narrow.png"
+            alt="Narrow Real Estate Logo"
+            class="brand-logo-img"
+          >
+          <div class="brand-text">
+            <span>NARROW</span>
+            <span>REAL ESTATE</span>
+          </div>
+        </a>
+
+        <button type="button" class="burger-menu" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <nav class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="properties.html">Properties</a>
+          <a href="list-property.html">List Your Own Property</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main Login Content -->
+    <main class="seller-login-page">
+      <div class="container">
+        <div class="login-wrapper">
+
+          <div class="login-card">
+            <div class="login-header">
+              <span class="portal-badge">
+                <span class="lock-icon">🔒</span> Approved Seller Portal
+              </span>
+              <h1>Seller Sign In</h1>
+              <p class="subtitle">
+                Access your listed properties, review prospective buyer inquiries, and manage listing details.
+              </p>
+            </div>
+
+            <!-- Error Alert Banner -->
+            <div id="loginErrorAlert" class="login-error-alert" role="alert" style="display: none;">
+              <span class="error-icon">⚠️</span>
+              <span id="loginErrorMessage" class="error-text">Invalid Seller ID/Email or password.</span>
+            </div>
+
+            <!-- Login Form -->
+            <form id="sellerLoginForm" novalidate>
+              <div class="form-group">
+                <label for="sellerIdentifier">Seller ID or Registered Email</label>
+                <input
+                  type="text"
+                  id="sellerIdentifier"
+                  name="sellerIdentifier"
+                  class="form-control"
+                  placeholder="e.g. #SEL-8821 or elena@vance.ph"
+                  autocomplete="username"
+                  required
+                >
+              </div>
+
+              <div class="form-group">
+                <label for="sellerPassword">Password</label>
+                <div class="password-wrapper">
+                  <input
+                    type="password"
+                    id="sellerPassword"
+                    name="sellerPassword"
+                    class="form-control"
+                    placeholder="Enter your password"
+                    autocomplete="current-password"
+                    required
+                  >
+                  <button
+                    type="button"
+                    class="btn-toggle-password"
+                    id="btnTogglePassword"
+                    aria-label="Show password"
+                    title="Toggle password visibility"
+                  >
+                    👁️
+                  </button>
+                </div>
+              </div>
+
+              <div class="form-options">
+                <label class="remember-me">
+                  <input type="checkbox" id="rememberMe" checked>
+                  <span>Remember me on this browser</span>
+                </label>
+                <a href="contact.html" class="forgot-link">Forgot password?</a>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-submit-login">
+                Sign In to Seller Portal
+              </button>
+            </form>
+
+            <!-- Demo Helper Callout -->
+            <div class="demo-credentials-box">
+              <div class="demo-title">
+                <span>💡</span> <strong>Demo Approved Seller Credentials:</strong>
+              </div>
+              <ul class="demo-list">
+                <li>
+                  <strong>Elena Vance:</strong> <code>#SEL-8821</code> or <code>elena@vance.ph</code> (Password: <code>password123</code>)
+                </li>
+                <li>
+                  <strong>Marcus Reyes:</strong> <code>#SEL-4412</code> or <code>marcus@reyes.ph</code> (Password: <code>password123</code>)
+                </li>
+              </ul>
+            </div>
+
+            <!-- Bottom Footnote -->
+            <div class="login-footer-note">
+              <p>Not an approved seller yet? <a href="list-property.html">Submit your property for listing approval &rarr;</a></p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </main>
+
+    <!-- Global Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <a href="index.html" class="footer-logo">
+              <img
+                src="images/narrow.png"
+                alt="Narrow Real Estate Logo"
+                class="brand-logo-img footer-logo-img"
+              >
+              <div class="brand-text">
+                <span>NARROW</span>
+                <span>REAL ESTATE</span>
+              </div>
+            </a>
+            <p>
+              Finding or selling a home in Pampanga should be simple, clear, and
+              approachable.
+            </p>
+          </div>
+          <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="properties.html">Properties</a></li>
+              <li><a href="list-property.html">List Your Property</a></li>
+              <li><a href="seller-login.html">Seller Portal</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Contact Information</h4>
+            <ul class="footer-contact">
+              <li class="contact-item">
+                <span class="icon">📍</span>
+                <span class="text">San Fernando, Pampanga, Philippines</span>
+              </li>
+              <li class="contact-item">
+                <span class="icon">📞</span>
+                <span class="text">
+                  <a href="tel:+639123456789">+63&nbsp;912&nbsp;345&nbsp;6789</a>
+                </span>
+              </li>
+              <li class="contact-item">
+                <span class="icon">✉️</span>
+                <span class="text">
+                  <a href="mailto:rowenrobnash@narrowrealestate.ph">rowenrobnash@narrowrealestate.ph</a>
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© 2026 Narrow Real Estate. All rights reserved.</p>
+          <div class="social-links">
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/nav.js"></script>
+    <script src="js/seller-login.js"></script>
+  </body>
+</html>

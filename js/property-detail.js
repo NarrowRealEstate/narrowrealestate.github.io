@@ -6,7 +6,7 @@ const renderPropertyDetail = (container) => {
   const prop = propertiesData.find(p => p.id === id);
 
   if (!prop) {
-    container.innerHTML = '<div class="container" style="padding: 100px 0; text-align:center;"><h2>Property not found.</h2><a href="properties.html">Back to Properties</a></div>';
+    container.innerHTML = '<div class="container" style="padding: 6.25rem 0; text-align:center;"><h2>Property not found.</h2><a href="properties.html">Back to Properties</a></div>';
     return;
   }
 

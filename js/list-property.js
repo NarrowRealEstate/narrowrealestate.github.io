@@ -90,6 +90,39 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
+      // Capture submission data for Seller Portal integration
+      const submittedProperty = {
+        id: Date.now(),
+        mls: `MLS #SUB-${Math.floor(1000 + Math.random() * 9000)}`,
+        title: document.getElementById('propertyTitle')?.value || 'Newly Submitted Property',
+        location: `${document.getElementById('propertyLocation')?.value || 'Pampanga'}, Philippines`,
+        city: document.getElementById('propertyLocation')?.value || 'San Fernando',
+        price: Number(document.getElementById('askingPrice')?.value) || 0,
+        beds: Number(document.getElementById('bedrooms')?.value) || null,
+        baths: Number(document.getElementById('bathrooms')?.value) || null,
+        floorArea: Number(document.getElementById('floorArea')?.value) || null,
+        lotArea: Number(document.getElementById('lotArea')?.value) || null,
+        type: document.getElementById('propertyType')?.value || 'House & Lot',
+        images: ['images/MLS000001/01.jpg'],
+        status: 'Pending Review',
+        views: 0,
+        daysOnMarket: 1,
+        inquiries: [],
+        submittedBy: {
+          name: document.getElementById('sellerName')?.value || 'Elena Vance',
+          email: document.getElementById('sellerEmail')?.value || '',
+          phone: document.getElementById('sellerPhone')?.value || ''
+        }
+      };
+
+      try {
+        const existing = JSON.parse(localStorage.getItem('narrow_submitted_listings') || '[]');
+        existing.unshift(submittedProperty);
+        localStorage.setItem('narrow_submitted_listings', JSON.stringify(existing));
+      } catch (err) {
+        console.error('Failed to save submitted listing', err);
+      }
+
       // Show confirmation modal
       if (submissionModal) {
         submissionModal.classList.add('active');
