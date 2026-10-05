@@ -551,4 +551,20 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
   }
+
+  // Route: Contact Page
+  const contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      if (!contactForm.checkValidity()) {
+        contactForm.reportValidity();
+        return;
+      }
+
+      alert('Message Sent! We will get back to you shortly.');
+      contactForm.reset();
+    });
+  }
 });
