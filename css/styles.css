@@ -1,182 +1,182 @@
 /* fonts */
 @font-face {
     font-family: 'Sabrosa';
-    src: url('fonts/sabrosa/sabrosa-light.ttf') format('truetype');
+    src: url('../fonts/sabrosa/sabrosa-light.ttf') format('truetype');
     font-weight: 300;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Sabrosa';
-    src: url('fonts/sabrosa/sabrosa-lightitalic.ttf') format('truetype');
+    src: url('../fonts/sabrosa/sabrosa-lightitalic.ttf') format('truetype');
     font-weight: 300;
     font-style: italic;
 }
 
 @font-face {
     font-family: 'Sabrosa';
-    src: url('fonts/sabrosa/sabrosa-regular.ttf') format('truetype');
+    src: url('../fonts/sabrosa/sabrosa-regular.ttf') format('truetype');
     font-weight: 400;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Sabrosa';
-    src: url('fonts/sabrosa/sabrosa-italic.ttf') format('truetype');
+    src: url('../fonts/sabrosa/sabrosa-italic.ttf') format('truetype');
     font-weight: 400;
     font-style: italic;
 }
 
 @font-face {
     font-family: 'Sabrosa';
-    src: url('fonts/sabrosa/sabrosa-medium.ttf') format('truetype');
+    src: url('../fonts/sabrosa/sabrosa-medium.ttf') format('truetype');
     font-weight: 500;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Sabrosa';
-    src: url('fonts/sabrosa/sabrosa-mediumitalic.ttf') format('truetype');
+    src: url('../fonts/sabrosa/sabrosa-mediumitalic.ttf') format('truetype');
     font-weight: 500;
     font-style: italic;
 }
 
 @font-face {
     font-family: 'Sabrosa';
-    src: url('fonts/sabrosa/sabrosa-bold.ttf') format('truetype');
+    src: url('../fonts/sabrosa/sabrosa-bold.ttf') format('truetype');
     font-weight: 700;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Sabrosa';
-    src: url('fonts/sabrosa/sabrosa-bolditalic.ttf') format('truetype');
+    src: url('../fonts/sabrosa/sabrosa-bolditalic.ttf') format('truetype');
     font-weight: 700;
     font-style: italic;
 }
 
 @font-face {
     font-family: 'Sabrosa';
-    src: url('fonts/sabrosa/sabrosa-black.ttf') format('truetype');
+    src: url('../fonts/sabrosa/sabrosa-black.ttf') format('truetype');
     font-weight: 900;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Sabrosa';
-    src: url('fonts/sabrosa/sabrosa-blackitalic.ttf') format('truetype');
+    src: url('../fonts/sabrosa/sabrosa-blackitalic.ttf') format('truetype');
     font-weight: 900;
     font-style: italic;
 }
 
 @font-face {
     font-family: 'Objectivity';
-    src: url('fonts/objectivity/Objectivity-Thin.woff2') format('woff2');
+    src: url('../fonts/objectivity/Objectivity-Thin.woff2') format('woff2');
     font-weight: 100;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Objectivity';
-    src: url('fonts/objectivity/Objectivity-ThinSlanted.woff2') format('woff2');
+    src: url('../fonts/objectivity/Objectivity-ThinSlanted.woff2') format('woff2');
     font-weight: 100;
     font-style: italic;
 }
 
 @font-face {
     font-family: 'Objectivity';
-    src: url('fonts/objectivity/Objectivity-Light.woff2') format('woff2');
+    src: url('../fonts/objectivity/Objectivity-Light.woff2') format('woff2');
     font-weight: 300;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Objectivity';
-    src: url('fonts/objectivity/Objectivity-LightSlanted.woff2') format('woff2');
+    src: url('../fonts/objectivity/Objectivity-LightSlanted.woff2') format('woff2');
     font-weight: 300;
     font-style: italic;
 }
 
 @font-face {
     font-family: 'Objectivity';
-    src: url('fonts/objectivity/Objectivity-Regular.woff2') format('woff2');
+    src: url('../fonts/objectivity/Objectivity-Regular.woff2') format('woff2');
     font-weight: 400;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Objectivity';
-    src: url('fonts/objectivity/Objectivity-RegularSlanted.woff2') format('woff2');
+    src: url('../fonts/objectivity/Objectivity-RegularSlanted.woff2') format('woff2');
     font-weight: 400;
     font-style: italic;
 }
 
 @font-face {
     font-family: 'Objectivity';
-    src: url('fonts/objectivity/Objectivity-Medium.woff2') format('woff2');
+    src: url('../fonts/objectivity/Objectivity-Medium.woff2') format('woff2');
     font-weight: 500;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Objectivity';
-    src: url('fonts/objectivity/Objectivity-MediumSlanted.woff2') format('woff2');
+    src: url('../fonts/objectivity/Objectivity-MediumSlanted.woff2') format('woff2');
     font-weight: 500;
     font-style: italic;
 }
 
 @font-face {
     font-family: 'Objectivity';
-    src: url('fonts/objectivity/Objectivity-Bold.woff2') format('woff2');
+    src: url('../fonts/objectivity/Objectivity-Bold.woff2') format('woff2');
     font-weight: 700;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Objectivity';
-    src: url('fonts/objectivity/Objectivity-BoldSlanted.woff2') format('woff2');
+    src: url('../fonts/objectivity/Objectivity-BoldSlanted.woff2') format('woff2');
     font-weight: 700;
     font-style: italic;
 }
 
 @font-face {
     font-family: 'Objectivity';
-    src: url('fonts/objectivity/Objectivity-ExtraBold.woff2') format('woff2');
+    src: url('../fonts/objectivity/Objectivity-ExtraBold.woff2') format('woff2');
     font-weight: 800;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Objectivity';
-    src: url('fonts/objectivity/Objectivity-ExtraBoldSlanted.woff2') format('woff2');
+    src: url('../fonts/objectivity/Objectivity-ExtraBoldSlanted.woff2') format('woff2');
     font-weight: 800;
     font-style: italic;
 }
 
 @font-face {
     font-family: 'Objectivity';
-    src: url('fonts/objectivity/Objectivity-Black.woff2') format('woff2');
+    src: url('../fonts/objectivity/Objectivity-Black.woff2') format('woff2');
     font-weight: 900;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Objectivity';
-    src: url('fonts/objectivity/Objectivity-BlackSlanted.woff2') format('woff2');
+    src: url('../fonts/objectivity/Objectivity-BlackSlanted.woff2') format('woff2');
     font-weight: 900;
     font-style: italic;
 }
 
 @font-face {
     font-family: 'Objectivity';
-    src: url('fonts/objectivity/Objectivity-Super.woff2') format('woff2');
+    src: url('../fonts/objectivity/Objectivity-Super.woff2') format('woff2');
     font-weight: 950;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Objectivity';
-    src: url('fonts/objectivity/Objectivity-SuperSlanted.woff2') format('woff2');
+    src: url('../fonts/objectivity/Objectivity-SuperSlanted.woff2') format('woff2');
     font-weight: 950;
     font-style: italic;
 }
