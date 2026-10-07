@@ -496,7 +496,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!property) return;
 
     managePropertyId.value = property.id;
-    managePrice.value = property.price || 0;
+    managePrice.value = (property.price || 0).toLocaleString('en-US');
     manageStatus.value = property.status || 'Active';
 
     const cleanTitle = (property.title || '').replace(/<[^>]*>?/gm, '');
@@ -518,12 +518,52 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Real-time comma formatting for asking price input
+  if (managePrice) {
+    managePrice.addEventListener('input', () => {
+      managePrice.setCustomValidity('');
+      const prevVal = managePrice.value;
+      const cursor = managePrice.selectionStart || 0;
+      const rawDigits = prevVal.replace(/\D/g, '');
+
+      if (!rawDigits) {
+        managePrice.value = '';
+        return;
+      }
+
+      const formatted = Number(rawDigits).toLocaleString('en-US');
+      const digitsBeforeCursor = prevVal.slice(0, cursor).replace(/\D/g, '').length;
+
+      managePrice.value = formatted;
+
+      // Recalculate cursor position to prevent cursor jump
+      let newCursor = 0;
+      let countedDigits = 0;
+      for (let i = 0; i < formatted.length; i++) {
+        if (/\d/.test(formatted[i])) countedDigits++;
+        if (countedDigits === digitsBeforeCursor) {
+          newCursor = i + 1;
+          break;
+        }
+      }
+      if (digitsBeforeCursor === 0) newCursor = 0;
+      managePrice.setSelectionRange(newCursor, newCursor);
+    });
+  }
+
   // Manage Form Submit (Save changes to localStorage)
   if (manageListingForm) {
     manageListingForm.addEventListener('submit', (e) => {
       e.preventDefault();
       const id = managePropertyId.value;
-      const updatedPrice = Number(managePrice.value);
+      const rawPrice = managePrice.value.replace(/\D/g, '');
+      const updatedPrice = rawPrice ? parseInt(rawPrice, 10) : 0;
+
+      if (updatedPrice < 100000) {
+        managePrice.setCustomValidity('Please enter an asking price of at least ₱100,000.');
+        managePrice.reportValidity();
+        return;
+      }
       const updatedStatus = manageStatus.value;
 
       const listings = getSellerListings(currentSellerKey);
