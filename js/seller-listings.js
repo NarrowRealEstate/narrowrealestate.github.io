@@ -331,7 +331,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (filtered.length === 0) {
       listingsContainer.innerHTML = `
         <div class="empty-state">
-          <div class="empty-icon">📂</div>
+          <div class="empty-icon" aria-hidden="true">
+            <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+            </svg>
+          </div>
           <h3>No listings found</h3>
           <p>We couldn't find any properties matching your current filter criteria.</p>
           <a href="list-property.html" class="btn btn-primary">List a New Property</a>
@@ -353,54 +357,77 @@ document.addEventListener('DOMContentLoaded', () => {
       const viewsCount = item.views !== undefined ? item.views : 0;
       const days = item.daysOnMarket !== undefined ? item.daysOnMarket : 1;
 
-      // Specs
-      const bedsDisplay = item.beds ? `${item.beds} Beds` : 'N/A Beds';
-      const bathsDisplay = item.baths ? `${item.baths} Baths` : 'N/A Baths';
-      const floorDisplay = item.floorArea ? `${item.floorArea} sqm Floor` : '';
-      const lotDisplay = item.lotArea ? `${item.lotArea} sqm Lot` : '';
-
       const card = document.createElement('article');
       card.className = 'seller-card';
       card.innerHTML = `
         <div class="card-media">
-          <img src="${imgSrc}" alt="${cleanTitle}" onerror="this.src='images/MLS000001/01.jpg'">
+          <span class="badge">${item.type || 'Property'}</span>
           <span class="card-badge-status ${statusClass}">${status}</span>
+          <img src="${imgSrc}" alt="${cleanTitle}" onerror="this.src='images/MLS000001/01.jpg'">
         </div>
 
         <div class="card-details">
           <div class="card-top-row">
             <span class="mls-tag">${item.mls || 'MLS #PENDING'}</span>
-            <span class="property-type-tag">${item.type || 'Property'}</span>
           </div>
-          <h3>${item.title || 'Untitled Property'}</h3>
-          <div class="card-location">
-            <span>📍</span> ${item.location || 'Pampanga'}
+          <h3 class="card-title">${item.title || 'Untitled Property'}</h3>
+          <div class="location">
+            <span class="icon" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+            </span>
+            <span>${item.location || 'Pampanga'}</span>
           </div>
-          <div class="card-specs">
-            <span class="spec-item">🛏️ <strong>${bedsDisplay}</strong></span>
-            <span class="spec-item">🚿 <strong>${bathsDisplay}</strong></span>
-            ${floorDisplay ? `<span class="spec-item">📐 <strong>${floorDisplay}</strong></span>` : ''}
-            ${lotDisplay ? `<span class="spec-item">🌿 <strong>${lotDisplay}</strong></span>` : ''}
+          <div class="price">${safeFormatPrice(item.price)}</div>
+          <div class="stats">
+            <div class="stat-item"><span>${item.beds || 'N/A'}</span> BEDS</div>
+            <div class="stat-item"><span>${item.baths || 'N/A'}</span> BATHS</div>
+            <div class="stat-item"><span>${item.floorArea ? item.floorArea + ' sqm' : 'N/A'}</span> FLOOR AREA</div>
+            ${item.lotArea ? `<div class="stat-item"><span>${item.lotArea} sqm</span> LOT AREA</div>` : ''}
           </div>
           <div class="card-metrics-row">
-            <span>👁️ <strong>${viewsCount}</strong> Total Views</span>
-            <span class="metric-highlight">💬 <strong>${inquiriesCount}</strong> Buyer Inquiries</span>
-            <span>📅 <strong>${days}</strong> Days on Market</span>
+            <span class="metric-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+              <strong>${viewsCount}</strong> Total Views
+            </span>
+            <span class="metric-item metric-highlight">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+              </svg>
+              <strong>${inquiriesCount}</strong> Buyer Inquiries
+            </span>
+            <span class="metric-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+              <strong>${days}</strong> Days on Market
+            </span>
           </div>
         </div>
 
         <div class="card-sidebar">
-          <div class="card-price">${safeFormatPrice(item.price)}</div>
           <div class="card-actions">
             <button type="button" class="btn-card btn-inquiries" data-action="inquiries" data-id="${item.id}">
-              💬 View Inquiries (${inquiriesCount})
+              View Inquiries (${inquiriesCount})
             </button>
             <button type="button" class="btn-card btn-manage" data-action="manage" data-id="${item.id}">
-              ⚙️ Manage Listing
+              Manage Listing
             </button>
             ${status === 'Active' ? `
               <a href="property-detail.html?id=${item.id}" target="_blank" class="btn-card btn-view-public">
-                View Public Page ↗
+                View Public Page
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
               </a>
             ` : `
               <span class="btn-card btn-view-public" style="opacity: 0.6; cursor: default;">
@@ -444,10 +471,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (!property.inquiries || property.inquiries.length === 0) {
       inquiriesListContainer.innerHTML = `
-        <div style="text-align: center; padding: 2rem 1rem; color: var(--text-gray);">
-          <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">📭</div>
-          <p><strong>No buyer inquiries yet.</strong></p>
-          <p style="font-size: 0.875rem;">Prospective buyers who contact your listing agent or send inquiries through the detail page will appear here.</p>
+        <div style="text-align: center; padding: 2.5rem 1rem; color: var(--text-gray);">
+          <div style="display: flex; justify-content: center; margin-bottom: 0.75rem; color: #b0b0b0;" aria-hidden="true">
+            <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="22 12 16 12 14 15 10 15 8 12 2 12"></polyline>
+              <path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path>
+            </svg>
+          </div>
+          <p><strong style="color: var(--text-dark);">No buyer inquiries yet.</strong></p>
+          <p style="font-size: 0.875rem; max-width: 24rem; margin: 0.35rem auto 0; line-height: 1.5;">Prospective buyers who contact your listing agent or send inquiries through the detail page will appear here.</p>
         </div>
       `;
     } else {
@@ -464,8 +496,19 @@ document.addEventListener('DOMContentLoaded', () => {
               </div>
             </div>
             <div class="inquiry-contact-links">
-              <a href="mailto:${inquiry.email}" class="inquiry-link">✉️ ${inquiry.email}</a>
-              <a href="tel:${inquiry.phone.replace(/[^0-9+]/g, '')}" class="inquiry-link">📞 ${inquiry.phone}</a>
+              <a href="mailto:${inquiry.email}" class="inquiry-link">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+                ${inquiry.email}
+              </a>
+              <a href="tel:${inquiry.phone.replace(/[^0-9+]/g, '')}" class="inquiry-link">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"></path>
+                </svg>
+                ${inquiry.phone}
+              </a>
             </div>
           </div>
           <div class="inquiry-message">${inquiry.message}</div>

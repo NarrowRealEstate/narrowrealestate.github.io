@@ -5,13 +5,13 @@
 /* layout */
 .property-detail-page {
     background-color: var(--bg-light);
-    padding: clamp(1rem, 2vw, 1.25rem) 0 clamp(3.5rem, 6vw, 5rem); 
+    padding: clamp(1rem, 2vw, 1.25rem) 0 clamp(3.5rem, 6vw, 5rem);
     min-height: 100vh;
 }
 
 /* header section */
 .back-link {
-    margin-bottom: 0.9375rem; 
+    margin-bottom: 0.9375rem;
 }
 
 .back-link a {
@@ -38,7 +38,7 @@
 /* Headings Overrides */
 .detail-header-left h1 {
     font-family: var(--font-main);
-    font-size: clamp(1.75rem, 3.5vw, 2rem); 
+    font-size: clamp(1.75rem, 3.5vw, 2rem);
     font-weight: 800;
     color: var(--text-dark);
     margin: 0.5rem 0;
@@ -46,7 +46,7 @@
 
 .detail-box h3 {
     font-family: var(--font-main);
-    font-size: 1.25rem; 
+    font-size: 1.25rem;
     font-weight: 700;
     margin-bottom: 0.9375rem;
     color: var(--text-dark);
@@ -54,14 +54,14 @@
 
 .similar-properties h2 {
     font-family: var(--font-main);
-    font-size: 1.5rem; 
+    font-size: 1.5rem;
     font-weight: 800;
     margin-bottom: 1.875rem;
 }
 
 .inquiry-form h3 {
     font-family: var(--font-main);
-    font-size: 1rem; 
+    font-size: 1rem;
     font-weight: 700;
     margin-bottom: 0.9375rem;
 }
@@ -107,7 +107,7 @@
 
 .detail-price {
     font-family: var(--font-main);
-    font-size: clamp(1.875rem, 4vw, 2.25rem); 
+    font-size: clamp(1.875rem, 4vw, 2.25rem);
     font-weight: 900;
     color: var(--primary-red);
     line-height: 1;
@@ -307,11 +307,11 @@
 }
 
 .stat-val {
-    font-size: 0.9375rem; 
+    font-size: 0.9375rem;
     font-weight: 800;
     color: var(--text-dark);
     margin-bottom: 0.3125rem;
-    white-space: nowrap; 
+    white-space: nowrap;
 }
 
 .stat-lbl {
@@ -358,7 +358,7 @@
 
 /* sidebar form */
 .detail-sidebar {
-    width: 20rem; 
+    width: 20rem;
     flex-shrink: 0;
     position: sticky;
     top: 6.25rem;
@@ -366,7 +366,7 @@
 }
 
 .detail-sidebar .detail-box {
-    padding: 1.5625rem; 
+    padding: 1.5625rem;
 }
 
 .agent-header {
@@ -417,7 +417,7 @@
 .inquiry-form input,
 .inquiry-form textarea {
     width: 100%;
-    box-sizing: border-box; 
+    box-sizing: border-box;
     padding: 0.625rem 0.75rem;
     border: 0.0625rem solid #eaeaea;
     border-radius: 0.25rem;
@@ -440,7 +440,7 @@
 
 .btn-submit {
     width: 100%;
-    box-sizing: border-box; 
+    box-sizing: border-box;
     margin-top: 0.625rem;
     padding: 0.75rem 0;
     font-size: 0.9375rem;
@@ -473,12 +473,12 @@
         width: 100%;
         position: static;
     }
-    
+
     .detail-stats {
         flex-wrap: wrap;
         gap: 0.9375rem;
     }
-    
+
     .stat-block {
         flex: 1 1 calc(33.33% - 1.25rem);
         border-right: none;
@@ -496,24 +496,71 @@
         align-items: flex-start;
         gap: 0.9375rem;
     }
-    
+
     .detail-header-right {
         text-align: left;
     }
-    
+
     .detail-price {
         font-size: 2rem;
     }
 
+    .detail-gallery {
+        height: clamp(14rem, 55vw, 20rem);
+        margin-bottom: 1.75rem;
+    }
+
+    .gallery-nav {
+        width: 2.25rem;
+        height: 2.25rem;
+        background: rgba(255, 255, 255, 0.9);
+    }
+
+    .gallery-prev { left: 0.5rem; }
+    .gallery-next { right: 0.5rem; }
+
+    .modal-close {
+        top: 1rem;
+        right: 1rem;
+        width: 2.75rem;
+        height: 2.75rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+    }
+
+    .modal-prev { left: 0.5rem; }
+    .modal-next { right: 0.5rem; }
+
     .stat-block {
         flex: 1 1 calc(50% - 0.9375rem);
     }
-    
+
     .features-list {
         grid-template-columns: 1fr;
     }
-    
+
     .similar-grid {
         grid-template-columns: 1fr;
+    }
+
+    .inquiry-form input,
+    .inquiry-form textarea {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 30em) {
+    .detail-gallery {
+        height: 14rem;
+    }
+
+    .stat-block {
+        flex: 1 1 100%;
+    }
+
+    .detail-price {
+        font-size: 1.75rem;
     }
 }

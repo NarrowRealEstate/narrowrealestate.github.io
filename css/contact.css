@@ -276,8 +276,27 @@
 }
 
 @media (max-width: 48em) {
+  .contact-form-card .form-control,
+  .contact-form-card .select-wrapper select.form-control {
+    font-size: 1rem;
+  }
+
   .btn-submit-contact {
     width: 100%;
     align-self: stretch;
+  }
+
+  .office-list a,
+  .info-email a {
+    display: inline-block;
+    padding: 0.125rem 0;
+  }
+}
+
+@media (max-width: 30em) {
+  .contact-form-card,
+  .info-card,
+  .office-card {
+    padding: 1.25rem 1rem;
   }
 }

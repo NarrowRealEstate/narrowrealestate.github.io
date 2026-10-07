@@ -270,8 +270,32 @@
     padding: 1.5rem;
   }
 
+  .form-control {
+    font-size: 1rem;
+  }
+
+  .btn-toggle-password {
+    width: 2.5rem;
+    height: 2.5rem;
+    right: 0.25rem;
+  }
+
   .form-options {
     flex-direction: column;
     align-items: flex-start;
+  }
+}
+
+@media (max-width: 30em) {
+  .login-card {
+    padding: 1.25rem 1rem;
+  }
+
+  .demo-credentials-box {
+    padding: 0.875rem;
+  }
+
+  .demo-list li code {
+    word-break: break-all;
   }
 }
