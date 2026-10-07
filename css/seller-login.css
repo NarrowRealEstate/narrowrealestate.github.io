@@ -203,43 +203,6 @@
   margin-top: 0.25rem;
 }
 
-/* Demo Credentials Box */
-.demo-credentials-box {
-  background-color: #fafafa;
-  border: 0.0625rem dashed #d9d9d9;
-  border-radius: 0.375rem;
-  padding: 1rem 1.15rem;
-  margin-top: 1.75rem;
-  font-size: 0.8125rem;
-  color: #555555;
-}
-
-.demo-title {
-  display: flex;
-  align-items: center;
-  gap: 0.35rem;
-  margin-bottom: 0.5rem;
-  color: var(--text-dark);
-}
-
-.demo-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-}
-
-.demo-list li code {
-  background-color: #eeeeee;
-  padding: 0.15rem 0.35rem;
-  border-radius: 0.25rem;
-  font-family: monospace;
-  font-size: 0.85em;
-  color: var(--text-dark);
-}
-
 /* Footer note */
 .login-footer-note {
   text-align: center;
@@ -289,13 +252,5 @@
 @media (max-width: 30em) {
   .login-card {
     padding: 1.25rem 1rem;
-  }
-
-  .demo-credentials-box {
-    padding: 0.875rem;
-  }
-
-  .demo-list li code {
-    word-break: break-all;
   }
 }
