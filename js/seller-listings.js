@@ -387,54 +387,53 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="stat-item"><span>${item.floorArea ? item.floorArea + ' sqm' : 'N/A'}</span> FLOOR AREA</div>
             ${item.lotArea ? `<div class="stat-item"><span>${item.lotArea} sqm</span> LOT AREA</div>` : ''}
           </div>
-          <div class="card-metrics-row">
-            <span class="metric-item">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                <circle cx="12" cy="12" r="3"></circle>
-              </svg>
-              <strong>${viewsCount}</strong> Total Views
-            </span>
-            <span class="metric-item metric-highlight">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-              </svg>
-              <strong>${inquiriesCount}</strong> Buyer Inquiries
-            </span>
-            <span class="metric-item">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                <line x1="16" y1="2" x2="16" y2="6"></line>
-                <line x1="8" y1="2" x2="8" y2="6"></line>
-                <line x1="3" y1="10" x2="21" y2="10"></line>
-              </svg>
-              <strong>${days}</strong> Days on Market
-            </span>
-          </div>
         </div>
 
-        <div class="card-sidebar">
-          <div class="card-actions">
-            <button type="button" class="btn-card btn-inquiries" data-action="inquiries" data-id="${item.id}">
-              View Inquiries (${inquiriesCount})
-            </button>
-            <button type="button" class="btn-card btn-manage" data-action="manage" data-id="${item.id}">
-              Manage Listing
-            </button>
-            ${status === 'Active' ? `
-              <a href="property-detail.html?id=${item.id}" target="_blank" class="btn-card btn-view-public">
-                View Public Page
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <line x1="7" y1="17" x2="17" y2="7"></line>
-                  <polyline points="7 7 17 7 17 17"></polyline>
-                </svg>
-              </a>
-            ` : `
-              <span class="btn-card btn-view-public" style="opacity: 0.6; cursor: default;">
-                ${status === 'Pending Review' ? 'Pending Approval' : status}
-              </span>
-            `}
-          </div>
+        <div class="card-actions-wrapper">
+          <button type="button" class="btn-card btn-inquiries" data-action="inquiries" data-id="${item.id}">
+            View Inquiries (${inquiriesCount})
+          </button>
+          <button type="button" class="btn-card btn-manage" data-action="manage" data-id="${item.id}">
+            Manage Listing
+          </button>
+          ${status === 'Active' ? `
+            <a href="property-detail.html?id=${item.id}" target="_blank" class="btn-card btn-view-public">
+              View Public Page
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </a>
+          ` : `
+            <span class="btn-card btn-view-public" style="opacity: 0.6; cursor: default;">
+              ${status === 'Pending Review' ? 'Pending Approval' : status}
+            </span>
+          `}
+        </div>
+
+        <div class="card-metrics-row">
+          <span class="metric-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+              <circle cx="12" cy="12" r="3"></circle>
+            </svg>
+            <strong>${viewsCount}</strong> Total Views
+          </span>
+          <span class="metric-item metric-highlight">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+            <strong>${inquiriesCount}</strong> Buyer Inquiries
+          </span>
+          <span class="metric-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            <strong>${days}</strong> Days on Market
+          </span>
         </div>
       `;
 
