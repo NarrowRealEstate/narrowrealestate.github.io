@@ -5,6 +5,7 @@ const propertiesData = [
     badge: "House & Lot",
     mls: "MLS #000001",
     yearBuilt: 2024,
+    thumbnail: "images/MLS000001/01.webp",
     images: [
       "images/MLS000001/01.jpg",
       "images/MLS000001/02.jpg",
@@ -38,6 +39,7 @@ const propertiesData = [
     badge: "Condominium",
     mls: "MLS #882103",
     yearBuilt: 2022,
+    thumbnail: "images/MLS882103/photo1.webp",
     images: ["images/MLS882103/photo1.jpg", "images/MLS882103/photo2.jpg", "images/MLS882103/photo3.jpg"],
     title: "Mid<span class=\"sans-hyphen\">-</span>Rise Studio Apartment",
     location: "City of San Fernando, Pampanga",
@@ -68,6 +70,7 @@ const propertiesData = [
     badge: "Townhouse",
     mls: "MLS #449212",
     yearBuilt: 2023,
+    thumbnail: "images/MLS449212/01.webp",
     images: ["images/MLS449212/01.jpg", "images/MLS449212/02.jpg", "images/MLS449212/03.jpg"],
     title: "Contemporary Townhouse",
     location: "Mabalacat, Pampanga",
@@ -98,6 +101,7 @@ const propertiesData = [
     badge: "House & Lot",
     mls: "MLS #112094",
     yearBuilt: 2021,
+    thumbnail: "images/MLS112094/01.webp",
     images: ["images/MLS112094/01.jpg", "images/MLS112094/02.jpg", "images/MLS112094/03.jpg"],
     title: "Spacious Family Home",
     location: "Mexico, Pampanga",
@@ -128,6 +132,7 @@ const propertiesData = [
     badge: "House & Lot",
     mls: "MLS #774391",
     yearBuilt: 2023,
+    thumbnail: "images/MLS774391/01.webp",
     images: ["images/MLS774391/01.jpg", "images/MLS774391/02.jpg", "images/MLS774391/03.jpg"],
     title: "Contemporary Architectural Villa",
     location: "Porac, Pampanga",
@@ -159,6 +164,7 @@ const propertiesData = [
     badge: "House & Lot",
     mls: "MLS #558291",
     yearBuilt: 2020,
+    thumbnail: "images/MLS558291/01.webp",
     images: ["images/MLS558291/01.jpg", "images/MLS558291/02.jpg", "images/MLS558291/03.jpg"],
     title: "Bungalow Retreat",
     location: "Bacolor, Pampanga",
@@ -197,9 +203,18 @@ const renderProperties = (properties, container, pageType) => {
     return;
   }
 
+  const getThumbnail = (prop) => {
+    if (prop.thumbnail) return prop.thumbnail;
+    if (prop.images && prop.images.length > 0) {
+      return prop.images[0].replace(/\.(jpg|jpeg|png)$/i, '.webp');
+    }
+    return prop.image ? prop.image.replace(/\.(jpg|jpeg|png)$/i, '.webp') : 'images/MLS000001/01.webp';
+  };
+
   properties.forEach(prop => {
     const badgeHtml = prop.badge ? `<span class="badge">${prop.badge}</span>` : '';
-    const mainImg = prop.images && prop.images.length > 0 ? prop.images[0] : prop.image;
+    const mainImg = getThumbnail(prop);
+    const fallbackImg = (prop.images && prop.images.length > 0) ? prop.images[0] : (prop.image || 'images/MLS000001/01.jpg');
     let statsHtml = '';
 
     if (pageType === 'home') {
@@ -222,7 +237,7 @@ const renderProperties = (properties, container, pageType) => {
       <div class="property-card">
         <div class="property-img-container">
           ${badgeHtml}
-          <img src="${mainImg}" alt="${prop.title.replace(/<[^>]*>?/gm, '')}">
+          <img src="${mainImg}" alt="${prop.title.replace(/<[^>]*>?/gm, '')}" onerror="this.onerror=null;this.src='${fallbackImg}'">
         </div>
         <div class="property-info">
           <h3>${prop.title}</h3>

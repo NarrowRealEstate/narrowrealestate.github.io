@@ -99,14 +99,15 @@ Narrow/
 ├── images/                 # Brand logos, hero backgrounds & property photography
 │   ├── hero.png
 │   ├── narrow.png
-│   ├── MLS000001/          # Property 1 photography (01.jpg, 02.jpg, 03.jpg)
-│   ├── MLS112094/          # Property 4 photography (01.jpg, 02.jpg, 03.jpg)
-│   ├── MLS449212/          # Property 3 photography (01.jpg, 02.jpg, 03.jpg)
-│   ├── MLS558291/          # Property 6 photography (01.jpg, 02.jpg, 03.jpg)
-│   ├── MLS774391/          # Property 5 photography (01.jpg, 02.jpg, 03.jpg)
-│   └── MLS882103/          # Property 2 photography (photo1.jpg, photo2.jpg, photo3.jpg)
-├── README.md               # User-facing documentation and demo credentials
-└── AGENTS.md               # Authoritative developer & AI reference guide
+│   ├── 02.jpg              # Standalone image asset (with 02.webp thumbnail)
+│   ├── 02.webp
+│   ├── MLS000001/          # Property 1 photography (01-03.jpg originals & webp thumbnails)
+│   ├── MLS112094/          # Property 4 photography (01-03.jpg originals & webp thumbnails)
+│   ├── MLS449212/          # Property 3 photography (01-03.jpg originals & webp thumbnails)
+│   ├── MLS558291/          # Property 6 photography (01-03.jpg originals & webp thumbnails)
+│   ├── MLS774391/          # Property 5 photography (01-03.jpg originals & webp thumbnails)
+│   └── MLS882103/          # Property 2 photography (photo1-3.jpg originals & webp thumbnails)
+└── README.md               # User-facing documentation and demo credentials
 ```
 
 ---
@@ -114,6 +115,7 @@ Narrow/
 ## Technical Standards & Architecture
 
 - **Zero-Dependency Architecture**: Built entirely with Vanilla HTML5, CSS3, and ES6+ JavaScript. No npm packages, build tools, or external UI libraries.
+- **Dual-Image Pipeline & WebP Thumbnails**: All property photography features optimized `.webp` thumbnails (~40–200 KB, ~97% size reduction) for grid cards across Homepage, Catalog, Seller Dashboard, and Similar Properties. When opening the Property Detail view (`property-detail.html`) or viewing the full-screen lightbox modal, original high-resolution `.jpg` images are loaded for maximum visual clarity.
 - **Strict Zero-Pixel Standard**: All stylesheets and inline templates strictly utilize relative units (`rem`, `em`, `clamp()`, `%`, `vw`). There are **0 hardcoded `px` occurrences** across all 8 stylesheets.
 - **Typography System**:
   - **Editorial Serif (`Sabrosa`)**: Headings (`h1`, `h2`, `h3`, `h4`) and brand text for an upscale aesthetic.

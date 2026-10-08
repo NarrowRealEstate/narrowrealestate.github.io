@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
           floorArea: 120,
           lotArea: 150,
           type: 'House & Lot',
+          thumbnail: 'images/MLS000001/01.webp',
           images: ['images/MLS000001/01.jpg'],
           status: 'Active',
           views: 428,
@@ -66,6 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
           floorArea: 68,
           lotArea: null,
           type: 'Condominium',
+          thumbnail: 'images/02.webp',
           images: ['images/02.jpg'],
           status: 'Active',
           views: 289,
@@ -93,6 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
           floorArea: 95,
           lotArea: 180,
           type: 'House & Lot',
+          thumbnail: 'images/MLS000001/02.webp',
           images: ['images/MLS000001/02.jpg'],
           status: 'Pending Review',
           views: 0,
@@ -121,6 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
           floorArea: 185,
           lotArea: 220,
           type: 'House & Lot',
+          thumbnail: 'images/MLS000001/03.webp',
           images: ['images/MLS000001/03.jpg'],
           status: 'Under Contract',
           views: 612,
@@ -351,7 +355,15 @@ document.addEventListener('DOMContentLoaded', () => {
       else if (status === 'Under Contract') statusClass = 'status-contract';
       else if (status === 'Sold') statusClass = 'status-sold';
 
-      const imgSrc = (item.images && item.images.length > 0) ? item.images[0] : 'images/MLS000001/01.jpg';
+      const getThumbnail = (item) => {
+        if (item.thumbnail) return item.thumbnail;
+        if (item.images && item.images.length > 0) {
+          return item.images[0].replace(/\.(jpg|jpeg|png)$/i, '.webp');
+        }
+        return 'images/MLS000001/01.webp';
+      };
+      const imgSrc = getThumbnail(item);
+      const fallbackImg = (item.images && item.images.length > 0) ? item.images[0] : 'images/MLS000001/01.jpg';
       const cleanTitle = (item.title || 'Untitled Property').replace(/<[^>]*>?/gm, '');
       const inquiriesCount = Array.isArray(item.inquiries) ? item.inquiries.length : 0;
       const viewsCount = item.views !== undefined ? item.views : 0;
@@ -363,7 +375,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="card-media">
           <span class="badge">${item.type || 'Property'}</span>
           <span class="card-badge-status ${statusClass}">${status}</span>
-          <img src="${imgSrc}" alt="${cleanTitle}" onerror="this.src='images/MLS000001/01.jpg'">
+          <img src="${imgSrc}" alt="${cleanTitle}" onerror="this.onerror=null;this.src='${fallbackImg}'">
         </div>
 
         <div class="card-details">

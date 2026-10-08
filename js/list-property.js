@@ -159,6 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
         floorArea: Number(document.getElementById('floorArea')?.value) || null,
         lotArea: Number(document.getElementById('lotArea')?.value) || null,
         type: document.getElementById('propertyType')?.value || 'House & Lot',
+        thumbnail: 'images/MLS000001/01.webp',
         images: ['images/MLS000001/01.jpg'],
         status: 'Pending Review',
         views: 0,
