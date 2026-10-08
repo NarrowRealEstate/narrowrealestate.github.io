@@ -27,6 +27,10 @@ document.addEventListener('DOMContentLoaded', () => {
           e.stopPropagation();
           const idx = parseInt(btn.getAttribute('data-index'), 10);
           uploadedFiles.splice(idx, 1);
+          const photoNotice = document.getElementById('photoLimitNotice');
+          if (photoNotice && uploadedFiles.length < 15) {
+            photoNotice.style.display = 'none';
+          }
           renderFilePreviews();
         });
       });
@@ -39,12 +43,18 @@ document.addEventListener('DOMContentLoaded', () => {
         return isValidType && isValidSize;
       });
 
+      const photoNotice = document.getElementById('photoLimitNotice');
       if (uploadedFiles.length + validFiles.length > 15) {
-        alert('You can upload a maximum of 15 photos.');
-        return;
+        if (photoNotice) photoNotice.style.display = 'block';
+        const allowed = 15 - uploadedFiles.length;
+        if (allowed > 0) {
+          uploadedFiles.push(...validFiles.slice(0, allowed));
+        }
+      } else {
+        if (photoNotice) photoNotice.style.display = 'none';
+        uploadedFiles.push(...validFiles);
       }
 
-      uploadedFiles.push(...validFiles);
       renderFilePreviews();
     };
 
@@ -172,11 +182,11 @@ document.addEventListener('DOMContentLoaded', () => {
       // Show confirmation modal
       if (submissionModal) {
         submissionModal.classList.add('active');
-      } else {
-        alert('Listing Submitted Successfully! A representative will reach out within 3–5 business days to verify and finalize your listing.');
       }
 
       listingForm.reset();
+      const photoNotice = document.getElementById('photoLimitNotice');
+      if (photoNotice) photoNotice.style.display = 'none';
       uploadedFiles = [];
       renderFilePreviews();
     });
@@ -188,6 +198,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
       submissionModal.addEventListener('click', (e) => {
         if (e.target === submissionModal) {
+          submissionModal.classList.remove('active');
+        }
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && submissionModal.classList.contains('active')) {
           submissionModal.classList.remove('active');
         }
       });

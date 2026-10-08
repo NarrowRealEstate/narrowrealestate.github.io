@@ -2,7 +2,7 @@
 
 const renderPropertyDetail = (container) => {
   const params = new URLSearchParams(window.location.search);
-  const id = parseInt(params.get('id'), 10) || 1; 
+  const id = parseInt(params.get('id'), 10) || 1;
   const prop = propertiesData.find(p => p.id === id);
 
   if (!prop) {
@@ -13,11 +13,11 @@ const renderPropertyDetail = (container) => {
   const featuresList = prop.features.map(f => `<li>${f}</li>`).join('');
 
   // Generate fading stack images
-  const galleryImagesHtml = prop.images.map((img, index) => 
+  const galleryImagesHtml = prop.images.map((img, index) =>
     `<img src="${img}" alt="Property View ${index + 1}" class="gallery-img ${index === 0 ? 'active' : ''}" onclick="openModal()">`
   ).join('');
 
-  const modalImagesHtml = prop.images.map((img, index) => 
+  const modalImagesHtml = prop.images.map((img, index) =>
     `<img src="${img}" alt="Fullscreen View ${index + 1}" class="modal-img ${index === 0 ? 'active' : ''}">`
   ).join('');
 
@@ -63,7 +63,7 @@ const renderPropertyDetail = (container) => {
 
       <div class="detail-content-grid">
         <div class="detail-main-col">
-          
+
           <div class="detail-box detail-stats">
             <div class="stat-block"><div class="stat-val">${prop.beds || 'N/A'}</div><div class="stat-lbl">Bedrooms</div></div>
             <div class="stat-block"><div class="stat-val">${prop.baths || 'N/A'}</div><div class="stat-lbl">Bathrooms</div></div>
@@ -105,8 +105,8 @@ const renderPropertyDetail = (container) => {
                 <div class="agent-title">${prop.agent.title}</div>
               </div>
             </div>
-            
-            <form class="inquiry-form" onsubmit="event.preventDefault(); alert('Inquiry Sent!');">
+
+            <form class="inquiry-form" id="detailInquiryForm">
               <h3>Inquire About This Property</h3>
               <div class="form-group">
                 <label>Full Name</label>
@@ -153,7 +153,7 @@ const renderPropertyDetail = (container) => {
     modalImages[currentSlide].classList.remove('active');
 
     currentSlide += direction;
-    
+
     // Circular logic
     if (currentSlide >= totalSlides) {
       currentSlide = 0;
@@ -177,13 +177,50 @@ const renderPropertyDetail = (container) => {
   // Render 2 similar properties (excluding the current one)
   const similarGrid = document.getElementById('similar-properties-grid');
   const similarProps = propertiesData.filter(p => p.id !== id && p.type === prop.type).slice(0, 2);
-  
+
   if (similarProps.length < 2) {
     const fallback = propertiesData.filter(p => p.id !== id && !similarProps.includes(p));
     similarProps.push(...fallback.slice(0, 2 - similarProps.length));
   }
 
   renderProperties(similarProps, similarGrid, 'properties');
+
+  // Handle Inquiry Form Submission and Confirmation Modal
+  const inquiryForm = document.getElementById('detailInquiryForm');
+  const inquiryModal = document.getElementById('inquirySuccessModal');
+  const btnCloseInquiryModal = document.getElementById('btnInquiryModalClose');
+
+  if (inquiryForm) {
+    inquiryForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (!inquiryForm.checkValidity()) {
+        inquiryForm.reportValidity();
+        return;
+      }
+      if (inquiryModal) {
+        inquiryModal.classList.add('active');
+      }
+      inquiryForm.reset();
+    });
+  }
+
+  if (btnCloseInquiryModal && inquiryModal) {
+    btnCloseInquiryModal.addEventListener('click', () => {
+      inquiryModal.classList.remove('active');
+    });
+
+    inquiryModal.addEventListener('click', (e) => {
+      if (e.target === inquiryModal) {
+        inquiryModal.classList.remove('active');
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && inquiryModal.classList.contains('active')) {
+        inquiryModal.classList.remove('active');
+      }
+    });
+  }
 };
 
 document.addEventListener('DOMContentLoaded', () => {

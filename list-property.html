@@ -290,6 +290,9 @@
                   class="file-input-hidden"
                 >
               </div>
+              <div id="photoLimitNotice" class="photo-limit-notice" role="alert" style="display: none;">
+                Maximum limit of 15 photos reached. Only the first 15 photos were retained.
+              </div>
 
               <!-- Uploaded files display -->
               <div class="file-preview-list" id="filePreviewList"></div>
@@ -317,7 +320,11 @@
     <!-- Submission Success Modal -->
     <div id="submissionModal" class="submission-modal" role="dialog" aria-modal="true">
       <div class="submission-modal-card">
-        <div class="modal-success-icon">✓</div>
+        <div class="modal-success-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </div>
         <h3>Listing Submitted Successfully!</h3>
         <p>
           Thank you for trusting Narrow Real Estate. A representative will review your property details and reach out within 3–5 business days to verify and finalize your listing.

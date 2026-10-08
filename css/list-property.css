@@ -232,6 +232,18 @@ textarea.form-control {
   display: none;
 }
 
+.photo-limit-notice {
+  background-color: #fff1f0;
+  border: 0.0625rem solid #ffa39e;
+  border-left: 0.25rem solid var(--primary-red);
+  border-radius: 0.25rem;
+  padding: 0.625rem 0.875rem;
+  margin-top: 0.75rem;
+  font-size: 0.8125rem;
+  color: #cf1322;
+  font-weight: 600;
+}
+
 /* Uploaded Images Preview List */
 .file-preview-list {
   display: flex;
@@ -357,15 +369,28 @@ textarea.form-control {
 }
 
 .modal-success-icon {
-  font-size: 3rem;
-  color: #28a745;
-  margin-bottom: 0.9375rem;
+  width: 3.5rem;
+  height: 3.5rem;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  background-color: #f6ffed;
+  border: 0.0625rem solid #b7eb8f;
+  color: #52c41a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-success-icon svg {
+  width: 1.75rem;
+  height: 1.75rem;
+  stroke: #52c41a;
 }
 
 .submission-modal-card h3 {
-  font-family: 'Sabrosa', var(--font-main);
-  font-size: 1.625rem;
-  font-weight: normal;
+  font-family: var(--font-main);
+  font-size: 1.35rem;
+  font-weight: 700;
   margin-bottom: 0.75rem;
   color: var(--text-dark);
 }

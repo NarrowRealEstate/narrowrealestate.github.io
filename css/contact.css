@@ -58,9 +58,9 @@
 }
 
 .contact-form-card h2 {
-  font-family: 'Sabrosa', var(--font-main);
-  font-size: clamp(1.375rem, 2.2vw, 1.625rem);
-  font-weight: normal;
+  font-family: var(--font-main);
+  font-size: clamp(1.35rem, 2.2vw, 1.5rem);
+  font-weight: 700;
   color: var(--text-dark);
   margin-bottom: 1.5rem;
 }
@@ -173,9 +173,9 @@
 }
 
 .info-card h3 {
-  font-family: 'Sabrosa', var(--font-main);
+  font-family: var(--font-main);
   font-size: clamp(1.125rem, 1.8vw, 1.25rem);
-  font-weight: normal;
+  font-weight: 700;
   color: var(--text-dark);
   margin-bottom: 0.625rem;
 }

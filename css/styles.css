@@ -403,7 +403,12 @@ footer {
 }
 
 .footer-col h4 {
-    font-size: 1rem;
+    font-family: var(--font-main);
+    font-size: 0.9375rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #ffffff;
     margin-bottom: 1.25rem;
 }
 
@@ -458,6 +463,83 @@ footer {
 
 .social-links a:hover {
     color: #ffffff;
+}
+
+/* ==========================================================================
+   Global Confirmation Modal
+   ========================================================================== */
+.submission-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    padding: 1.25rem;
+}
+
+.submission-modal.active {
+    display: flex;
+}
+
+.submission-modal-card {
+    background: #ffffff;
+    max-width: 31.25rem;
+    width: 100%;
+    padding: 2.5rem 1.875rem;
+    border-radius: 0.5rem;
+    text-align: center;
+    box-shadow: 0 0.625rem 1.875rem rgba(0, 0, 0, 0.2);
+    animation: modalFadeIn 0.3s ease;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(0.9375rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-success-icon {
+    width: 3.5rem;
+    height: 3.5rem;
+    margin: 0 auto 1rem;
+    border-radius: 50%;
+    background-color: #f6ffed;
+    border: 0.0625rem solid #b7eb8f;
+    color: #52c41a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-success-icon svg {
+    width: 1.75rem;
+    height: 1.75rem;
+    stroke: #52c41a;
+}
+
+.submission-modal-card h3 {
+    font-family: var(--font-main);
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    color: var(--text-dark);
+}
+
+.submission-modal-card p {
+    font-size: 0.875rem;
+    color: var(--text-gray);
+    line-height: 1.6;
+    margin-bottom: 1.5625rem;
 }
 
 /* RESPONSIVENESS: Global, Header & Footer */
