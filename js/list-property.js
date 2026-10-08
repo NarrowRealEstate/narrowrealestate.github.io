@@ -82,11 +82,57 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
+    // Real-time comma formatting for asking price input
+    const askingPrice = document.getElementById('askingPrice');
+    if (askingPrice) {
+      askingPrice.addEventListener('input', () => {
+        askingPrice.setCustomValidity('');
+        const prevVal = askingPrice.value;
+        const cursor = askingPrice.selectionStart || 0;
+        const rawDigits = prevVal.replace(/\D/g, '');
+
+        if (!rawDigits) {
+          askingPrice.value = '';
+          return;
+        }
+
+        const formatted = Number(rawDigits).toLocaleString('en-US');
+        const digitsBeforeCursor = prevVal.slice(0, cursor).replace(/\D/g, '').length;
+
+        askingPrice.value = formatted;
+
+        // Recalculate cursor position to prevent cursor jump
+        let newCursor = 0;
+        let countedDigits = 0;
+        for (let i = 0; i < formatted.length; i++) {
+          if (/\d/.test(formatted[i])) countedDigits++;
+          if (countedDigits === digitsBeforeCursor) {
+            newCursor = i + 1;
+            break;
+          }
+        }
+        if (digitsBeforeCursor === 0) newCursor = 0;
+        askingPrice.setSelectionRange(newCursor, newCursor);
+      });
+    }
+
     listingForm.addEventListener('submit', (e) => {
       e.preventDefault();
 
       if (!listingForm.checkValidity()) {
         listingForm.reportValidity();
+        return;
+      }
+
+      // Validate asking price
+      const rawPrice = askingPrice ? askingPrice.value.replace(/\D/g, '') : '';
+      const parsedPrice = rawPrice ? parseInt(rawPrice, 10) : 0;
+
+      if (!rawPrice || parsedPrice < 100000) {
+        if (askingPrice) {
+          askingPrice.setCustomValidity('Please enter an asking price of at least ₱100,000.');
+          askingPrice.reportValidity();
+        }
         return;
       }
 
@@ -97,7 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
         title: document.getElementById('propertyTitle')?.value || 'Newly Submitted Property',
         location: `${document.getElementById('propertyLocation')?.value || 'Pampanga'}, Philippines`,
         city: document.getElementById('propertyLocation')?.value || 'San Fernando',
-        price: Number(document.getElementById('askingPrice')?.value) || 0,
+        price: parsedPrice,
         beds: Number(document.getElementById('bedrooms')?.value) || null,
         baths: Number(document.getElementById('bathrooms')?.value) || null,
         floorArea: Number(document.getElementById('floorArea')?.value) || null,

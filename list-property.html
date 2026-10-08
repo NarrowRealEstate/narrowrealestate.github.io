@@ -156,16 +156,20 @@
               </div>
 
               <div class="form-group">
-                <label for="askingPrice">Asking Price (₱)</label>
-                <input
-                  type="number"
-                  id="askingPrice"
-                  name="askingPrice"
-                  class="form-control"
-                  placeholder="e.g. 5500000"
-                  min="0"
-                  required
-                >
+                <label for="askingPrice">Asking Price (PHP)</label>
+                <div class="price-input-wrapper">
+                  <span class="currency-prefix">₱</span>
+                  <input
+                    type="text"
+                    inputmode="numeric"
+                    id="askingPrice"
+                    name="askingPrice"
+                    class="form-control"
+                    placeholder="e.g. 5,500,000"
+                    autocomplete="off"
+                    required
+                  >
+                </div>
               </div>
 
               <div class="form-group">

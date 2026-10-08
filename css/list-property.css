@@ -136,6 +136,32 @@ textarea.form-control {
   line-height: 1.55;
 }
 
+/* Price Input Wrapper with Currency Prefix */
+.price-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.price-input-wrapper .currency-prefix {
+  position: absolute;
+  left: 1rem;
+  font-family: var(--font-main);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--primary-red);
+  pointer-events: none;
+  user-select: none;
+}
+
+.price-input-wrapper .form-control {
+  padding-left: 2.25rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
 /* Custom Dropdown Select */
 .select-wrapper {
   position: relative;
